@@ -27,6 +27,12 @@ class user {
         UpdateAnswer.updateAnswered(req, res);
     }
 
+    async getData(req, res) {
+        const getData = require('./user/listUsers/listUserData');
+        const data = new getData();
+        data.getData(req, res);
+    }
+
 }
 
 module.exports = user;

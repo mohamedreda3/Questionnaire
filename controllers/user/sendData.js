@@ -18,7 +18,7 @@ module.exports = class SendMessage {
                 if (!findEmail) {
                     res.status(403).json({ message: "User Not Found" });
                 } else {
-                    await emailSender.sendEmail(user.Email, message);
+                    await emailSender.sendEmail(findEmail.name, user.Email, message);
                     res.status(201).json({ message: "Success" });
                 }
             } catch {
