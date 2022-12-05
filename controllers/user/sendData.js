@@ -18,17 +18,8 @@ module.exports = class SendMessage {
                 if (!findEmail) {
                     res.status(403).json({ message: "User Not Found" });
                 } else {
-                    if (findEmail.answered) {
-                        res.status(403).json({ message: "You have already completed the survey" });
-                    } else {
-                        try {
-                            await mongoose.updateOne({ Email: user.Email }, { $set: { answered: true } })
-                            await emailSender.sendEmail(user.Email, message);
-                            res.status(201).json({ message: "Success" });
-                        } catch {
-                            res.status(404).json({ message: "User Not Found" });
-                        }
-                    }
+                    await emailSender.sendEmail(user.Email, message);
+                    res.status(201).json({ message: "Success" });
                 }
             } catch {
                 res.status(403).json({ message: "Invalid Token" })

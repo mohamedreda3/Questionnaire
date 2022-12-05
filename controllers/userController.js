@@ -17,9 +17,14 @@ class user {
 
     async sendMessage(req, res) {
         const sendMessage = require('./user/sendData');
-        const sendData = new sendMessage()
+        const sendData = new sendMessage();
         sendData.sendMessage(req, res);
-        
+    }
+
+    async updateAnswered(req, res) {
+        const updateAnswered = require('./user/updataUserData/updataAnswered');
+        const UpdateAnswer = new updateAnswered();
+        UpdateAnswer.updateAnswered(req, res);
     }
 
 }
