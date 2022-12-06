@@ -1,15 +1,6 @@
 const nodemailer = require("nodemailer");
 
 module.exports = class SendEmail {
-    // // constructor() { }
-    // getCode() {
-    //     let code = '';
-    //     for (let i = 11; i < 17; i++) {
-    //         code += Math.floor(Math.random() * i);
-    //     }
-    //     return code.substring(0, 6);
-    // }
-
     async sendEmail(name, email, message) {
         let transporter = nodemailer.createTransport({
             service: "gmail",
